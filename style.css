@@ -1,0 +1,165 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  background-color: lightblue;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.mainContainer {
+  width: 440px;
+  margin-top: 100px;
+}
+.forms,
+.card {
+  height: auto;
+  padding: 0px 40px;
+}
+.forms {
+  background-color: #fff;
+  border-radius: 7px;
+  width: 100%;
+  padding: 150px 40px 50px 40px;
+  box-shadow: -2px 1px 24px 8px rgb(0 0 0 / 8%);
+}
+.forms form .inputs {
+  padding: 10px 0px;
+}
+.forms input,
+.forms select {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #a6a6a6;
+  padding: 0px 10px;
+}
+.forms form .inputs {
+  display: flex;
+  flex-direction: column;
+}
+.forms .inputs.dropdowns {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.forms select {
+  width: 120px;
+}
+.forms .dropdowns input {
+  width: 80px;
+}
+.forms .button {
+  width: 100%;
+  border: none;
+  background: #0055d4;
+  border-radius: 4px;
+  height: 40px;
+  margin-top: 10px;
+  color: #fff;
+  box-shadow: 3px 4px 12px 0px rgb(0 85 212 / 30%);
+}
+.forms label,
+.forms .label {
+  font-size: 12px;
+}
+.forms input:focus,
+.forms select:focus {
+  border: 1px solid #0055d4;
+  box-shadow: 1px 1px 15px 3px rgb(0 0 0 / 8%);
+  outline: none;
+}
+.card img {
+  width: 200px;
+}
+.card {
+  top: 50px;
+}
+.cardContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.card {
+  position: absolute;
+  color: #fff;
+  perspective: 1000px;
+}
+.cardFront {
+  width: 352px;
+  background-image: url(./images/6.jpeg);
+  background-size: contain;
+  width: 352px;
+  height: 227px;
+  border-radius: 20px;
+  padding: 0px 20px;
+  box-shadow: 0px 0px 24px 2px rgb(0 0 0 / 50%);
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.cardBack {
+  width: 352px;
+  background-image: url(./images/6.jpeg);
+  background-size: contain;
+  width: 352px;
+  height: 227px;
+  border-radius: 20px;
+  padding: 0px 20px;
+  box-shadow: 0px 0px 24px 2px rgb(0 0 0 / 50%);
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(-180deg);
+}
+img.chipImage {
+  width: 50px;
+  top: 18px;
+  position: relative;
+}
+img.cardBrand {
+  width: 80px;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}
+.cardFront .cardNum {
+  margin-top: 70px;
+  position: relative;
+  word-spacing: 5px;
+  letter-spacing: 5px;
+}
+.cardFront .cardDetails {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.cardDetails {
+  color: rgba(255, 255, 255, 0.6);
+}
+.expiryDate,
+.holderName {
+  color: rgba(255, 255, 255, 1);
+}
+.cvvInput {
+}
+.card.active .cardFront {
+  transform: rotateY(180deg);
+}
+.card.active .cardBack {
+  transform: rotateY(0deg);
+}

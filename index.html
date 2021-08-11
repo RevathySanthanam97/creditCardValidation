@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="mainContainer">
+        <div class="forms">
+          <form>
+            <div class="inputs">
+              <label for="number">Card Number</label>
+              <input type="text" name="number" />
+            </div>
+            <div class="inputs">
+              <label for="name">Card Name</label>
+              <input type="text" name="name" />
+            </div>
+            <div class="inputs dropdowns">
+              <div>
+                <select name="month" id="month">
+                  <option value="">Month</option>
+                </select>
+              </div>
+              <div>
+                <select name="year" id="year">
+                  <option value="">Year</option>
+                </select>
+              </div>
+              <div>
+                <input id="cvvInput" class="cvvInput" type="text" />
+              </div>
+            </div>
+            <button class="button">Submit</button>
+          </form>
+        </div>
+        <div class="card" id="card">
+          <div class="cardContainer">
+            <div id="cardFront" class="cardFront">
+              <img src="./images/chip.png" class="chipImage" alt="Chip Image" />
+              <img
+                src="./images/visa.png"
+                class="cardBrand"
+                alt="Card Brand Image"
+              />
+              <p class="cardNum">
+                ####&nbsp;&nbsp;####&nbsp;&nbsp;####&nbsp;&nbsp;####
+              </p>
+              <div class="cardDetails">
+                <p>Name<br /><span class="holderName">Card Holder</span></p>
+                <p>Expires<br /><span class="expiryDate">MM/YY</span></p>
+              </div>
+              <div class="box"></div>
+            </div>
+            <div class="cardBack"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
