@@ -1,4 +1,6 @@
-for (y = 2000; y <= 2500; y++) {
+var x = Object.assign([], $("#cardNumOp").html());
+var xx = new Array();
+for (y = 2021; y <= 2050; y++) {
   var optn = document.createElement("OPTION");
   optn.text = y;
   optn.value = y;
@@ -6,24 +8,74 @@ for (y = 2000; y <= 2500; y++) {
 }
 var d = new Date();
 var monthArray = new Array();
-monthArray[0] = "January";
-monthArray[1] = "February";
-monthArray[2] = "March";
-monthArray[3] = "April";
-monthArray[4] = "May";
-monthArray[5] = "June";
-monthArray[6] = "July";
-monthArray[7] = "August";
-monthArray[8] = "September";
-monthArray[9] = "October";
-monthArray[10] = "November";
-monthArray[11] = "December";
+monthArray = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 for (m = 0; m <= 11; m++) {
   var optn = document.createElement("OPTION");
   optn.text = monthArray[m];
   optn.value = m + 1;
   document.getElementById("month").options.add(optn);
 }
-document.getElementById("cvvInput").addEventListener("click", function () {
-  document.getElementById("card").classList.add("active");
+document.getElementById("cvvInput").addEventListener("click", function () {});
+$(".inputField").click(function (e) {
+  if (e.target.id == "cvvInput") {
+    $("#card").addClass("active");
+  } else {
+    $("#card").removeClass("active");
+  }
+});
+$("input").keyup(function (e) {
+  if (e.target.value.length > 0) {
+    $(this).val(
+      $(this)
+        .val()
+        .replace(/[^0-9]/g, "")
+        .match(/.{1,4}/g)
+        .join(" ")
+    );
+  }
+
+  var y = e.target.value.split("");
+
+  y.map((item, index) => {
+    if (
+      e.target.value.length - 1 == index &&
+      !(
+        e.target.value.length == 4 ||
+        e.target.value.length == 9 ||
+        e.target.value.length == 14
+      )
+    ) {
+      x[index] = `<span class="active ${index}">${item}</span>`;
+    } else {
+      x[index] = `<span class="${index}">${item}</span>`;
+    }
+  });
+  if (e.key === "Backspace" || e.key === "Delete") {
+    if (
+      !(
+        e.target.value.length == 4 ||
+        e.target.value.length == 9 ||
+        e.target.value.length == 14
+      )
+    ) {
+      x.splice(e.target.value.length, 1, "#");
+    } else {
+      x.splice(e.target.value.length + 1, 1, "#");
+    }
+  }
+  var xx = x.join("");
+  $("#" + e.target.id.slice(0, -2) + "Op").html(xx);
 });

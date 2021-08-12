@@ -136,7 +136,7 @@ img.cardBrand {
   top: 25px;
   right: 20px;
 }
-.cardFront .cardNum {
+.cardFront .cardNumOp {
   margin-top: 70px;
   position: relative;
   word-spacing: 5px;
@@ -155,11 +155,46 @@ img.cardBrand {
 .holderName {
   color: rgba(255, 255, 255, 1);
 }
-.cvvInput {
+.cardNumOp span.active {
+  animation: animateText 0.3s linear;
+  transform: translateY(0px);
+  position: relative;
+  top: 0px;
+}
+@keyframes animateText {
+  50% {
+    top: 7px;
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
 }
 .card.active .cardFront {
   transform: rotateY(180deg);
 }
 .card.active .cardBack {
   transform: rotateY(0deg);
+}
+.blackbadge {
+  background-color: black;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+}
+.cardBack img.cardBrand {
+  width: 50px;
+  position: absolute;
+  top: 165px;
+  right: 20px;
+}
+.cvvLabel {
+  text-align: right;
+  margin-top: 40px;
+}
+.cvvNum {
+  background-color: white;
+  height: 30px;
+  text-align: right;
 }
