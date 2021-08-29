@@ -156,14 +156,17 @@ img.cardBrand {
   color: rgba(255, 255, 255, 1);
 }
 .cardNumOp span.active {
-  animation: animateText 0.3s linear;
+  animation: animateText 0.2s linear;
   transform: translateY(0px);
   position: relative;
   top: 0px;
 }
 @keyframes animateText {
+  0% {
+    opacity: 0.2;
+  }
   50% {
-    top: 7px;
+    top: 10px;
     opacity: 0.5;
   }
   100% {
@@ -197,4 +200,6 @@ img.cardBrand {
   background-color: white;
   height: 30px;
   text-align: right;
+  color: #000;
+  padding: 6px 5px;
 }

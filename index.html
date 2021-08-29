@@ -25,27 +25,37 @@
                 id="cardNumIp"
                 type="text"
                 name="number"
-                pattern="[0-9]"
                 maxlength="19"
               />
             </div>
             <div class="inputs">
               <label for="name">Card Name</label>
-              <input class="inputField" type="text" name="name" />
+
+              <input
+                id="cardNameIp"
+                class="inputField"
+                type="text"
+                name="name"
+              />
             </div>
             <div class="inputs dropdowns">
               <div>
-                <select class="inputField" name="month" id="month">
+                <select class="inputField" id="cardMntIp" name="month">
                   <option value="">Month</option>
                 </select>
               </div>
               <div>
-                <select class="inputField" name="year" id="year">
+                <select class="inputField" name="year" id="cardYearIp">
                   <option value="">Year</option>
                 </select>
               </div>
               <div>
-                <input id="cvvInput" class="cvvInput inputField" type="text" />
+                <input
+                  id="cvvIp"
+                  class="cvvInput inputField"
+                  type="text"
+                  maxlength="3"
+                />
               </div>
             </div>
             <button class="button">Submit</button>
@@ -62,15 +72,22 @@
               />
               <p class="cardNumOp" id="cardNumOp">#### #### #### ####</p>
               <div class="cardDetails">
-                <p>Name<br /><span class="holderName">Card Holder</span></p>
-                <p>Expires<br /><span class="expiryDate">MM/YY</span></p>
+                <p>
+                  Name<br /><span id="cardNameOp" class="holderName"
+                    >Card Holder</span
+                  >
+                </p>
+                <p>
+                  Expires<br /><span id="cardMntOp" class="expiryDate">MM</span
+                  >/<span id="cardYearOp" class="expiryDate">YY</span>
+                </p>
               </div>
               <div class="box"></div>
             </div>
             <div class="cardBack">
               <div class="blackbadge"></div>
               <p class="cvvLabel">cvv</p>
-              <p class="cvvNum"></p>
+              <p id="cvvOp" class="cvvNum"></p>
               <img
                 src="./images/visa.png"
                 class="cardBrand"
