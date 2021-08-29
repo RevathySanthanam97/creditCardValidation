@@ -156,7 +156,7 @@ img.cardBrand {
   color: rgba(255, 255, 255, 1);
 }
 .cardNumOp span.active {
-  animation: animateText 0.2s linear;
+  animation: animateText 0.3s linear;
   transform: translateY(0px);
   position: relative;
   top: 0px;
@@ -166,7 +166,7 @@ img.cardBrand {
     opacity: 0.2;
   }
   50% {
-    top: 10px;
+    top: 7px;
     opacity: 0.5;
   }
   100% {

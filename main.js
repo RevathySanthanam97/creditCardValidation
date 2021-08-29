@@ -97,23 +97,26 @@ function printVal(elem, printValue) {
   $("#" + elem.slice(0, -2) + "Op").html(printValue);
 }
 function findCard(val) {
-  if ((val.length >= 2 && val.substr(0, 2) == 34) || val.substr(0, 2) == 37) {
-    console.log(val.substr(0, 2));
-    $(".cardBrand").attr("src", "./images/unionpay.png");
-  } else if (
-    (val.length >= 2 && val.substr(0, 2) == 51) ||
-    val.substr(0, 2) == 52 ||
-    val.substr(0, 2) == 53 ||
-    val.substr(0, 2) == 54 ||
-    val.substr(0, 2) == 55
-  ) {
-    $(".cardBrand").attr("src", "./images/mastercard.png");
-  } else if (
-    (val.length >= 4 && val.substr(0, 4) == 2131) ||
-    val.substr(0, 2) == 1800
-  ) {
-    $(".cardBrand").attr("src", "./images/mastercard.png");
-  } else {
-    $(".cardBrand").attr("src", "./images/visa.png");
+  switch (true) {
+    case val.substr(0, 2) == 34 || val.substr(0, 2) == 37:
+      $(".cardBrand").attr("src", "./images/unionpay.png");
+      break;
+    case val.substr(0, 2) > 50 && val.substr(0, 2) < 56:
+      $(".cardBrand").attr("src", "./images/mastercard.png");
+      break;
+    case (val.length >= 4 && val.substr(0, 4) == 2131) ||
+      val.substr(0, 2) == 1800:
+      $(".cardBrand").attr("src", "./images/jcb.png");
+      break;
+    case val.substr(0, 1) >= 5 || val.substr(0, 4) == 6011:
+      $(".cardBrand").attr("src", "./images/jcb.png");
+      break;
+    case (val.substr(0, 3) >= 300 && val.substr(0, 3) <= 305) ||
+      val.substr(0, 2) == 38 ||
+      val.substr(0, 2) == 36:
+      $(".cardBrand").attr("src", "./images/dinersclub.png");
+      break;
+    default:
+      $(".cardBrand").attr("src", "./images/visa.png");
   }
 }
