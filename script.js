@@ -1,15 +1,5 @@
-var dummy = [];
-var text;
-for (var j = 1; j < 20; j++) {
-  if (!(j == 5 || j == 10 || j == 15)) {
-    text = `<span class="default-${j}">#</span>`;
-  } else {
-    text = `<span class="default-${j}">&nbsp;</span>`;
-  }
-  dummy.push(text);
-}
-document.getElementById("cardNumOp").innerHTML = dummy.join("");
-var cardNumOp = dummy;
+var cardNumOp = document.getElementById("cardNumOp").children;
+var cardNumOpArr = new Array();
 for (y = 2021; y <= 2050; y++) {
   var optn = document.createElement("OPTION");
   optn.text = y;
@@ -50,8 +40,6 @@ $(".inputField").click(function (e) {
 $("input").keyup(function (e) {
   var elem = this.id;
   var printOutput = this.value;
-  $(`.default-${this.value.length}`).addClass("deactivate");
-  console.log(this.value.length);
   if (elem == "cardNumIp") {
     findCard(this.value);
     this.value = this.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");
@@ -73,37 +61,25 @@ $("input").keyup(function (e) {
           this.value.length == 14
         )
       ) {
-        cardNumOp.splice(
-          this.value.length,
-          1,
-          `<span class="default-${this.value.length + 1}">#</span>`
-        );
+        cardNumOp.splice(this.value.length, 1, "#");
       } else {
-        cardNumOp.splice(
-          this.value.length + 1,
-          1,
-          `<span class="default-${this.value.length + 1}">#</span>`
-        );
+        cardNumOp.splice(this.value.length + 1, 1, "#");
       }
     }
     var y = this.value.split("");
     y.map((item, index) => {
-      if (
-        this.value.length - 1 == index &&
-        !(e.key === "Backspace" || e.key === "Delete")
-      ) {
+      if (this.value.length - 1 == index) {
+        console.log(this.value.length);
         cardNumOp[index] = `<span class="active ${index}">${item}</span>`;
       } else {
         cardNumOp[index] = `<span class="${index}">${item}</span>`;
       }
     });
-    var printOutput = cardNumOp.join("");
+    var printOutput = cardNumOp;
   } else if (elem == "cvvIp") {
     printOutput = printOutput.replace(/[0-9]/g, "*");
   }
-  setTimeout(() => {
-    printVal(elem, printOutput);
-  }, 50);
+  printVal(elem, printOutput);
 });
 $("select").change(function (e) {
   var elem = this.id;
@@ -144,3 +120,24 @@ function findCard(val) {
       $(".cardBrand").attr("src", "./images/visa.png");
   }
 }
+<p class="cardNumOp" id="cardNumOp">
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+  <span> </span>
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+  <span> </span>
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+  <span> </span>
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+  <span>#</span>
+</p>;
